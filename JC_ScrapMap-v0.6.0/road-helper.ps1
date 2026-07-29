@@ -45,6 +45,7 @@ function Start-MapServer([Nullable[int]]$Seed) {
         '-ExecutionPolicy', 'Bypass',
         '-File', "`"$launcher`"",
         '-DirectMap',
+        '-NoBrowser',
         '-Port', $Port
     )
     if ($GamePath) { $arguments += @('-GamePath', "`"$GamePath`"") }
@@ -55,10 +56,28 @@ function Start-MapServer([Nullable[int]]$Seed) {
 
 function Open-Or-RefreshMap {
     $baseUri = "http://127.0.0.1:$Port"
+    $mapUri = "$baseUri/web/index.html"
     try {
         $status = Invoke-RestMethod -Method Get -Uri "$baseUri/api/status" -TimeoutSec 2
     } catch {
         Start-MapServer $null
+        $ready = $false
+        for ($attempt = 0; $attempt -lt 60; $attempt++) {
+            Start-Sleep -Milliseconds 250
+            try {
+                $status = Invoke-RestMethod -Method Get -Uri "$baseUri/api/status" -TimeoutSec 1
+                if ($status.ok -and $status.service -eq 'jc-scrapmap') {
+                    $ready = $true
+                    break
+                }
+            } catch {}
+        }
+        if (-not $ready) {
+            Write-Warning 'The map server did not start. Review the map-server PowerShell window for the error.'
+            return
+        }
+        Start-Process $mapUri
+        Write-Host 'Map opened with the latest saved state.'
         return
     }
     if (-not $status.ok -or $status.service -ne 'jc-scrapmap') {
@@ -67,6 +86,7 @@ function Open-Or-RefreshMap {
     }
     try {
         Invoke-RestMethod -Method Post -Uri "$baseUri/api/refresh" -ContentType 'application/json' -Body '{}' -TimeoutSec 30 | Out-Null
+        Start-Process $mapUri
         Write-Host 'Map data refreshed from the latest saved state.'
     } catch {
         Write-Warning "The existing map server could not refresh: $($_.Exception.Message)"
