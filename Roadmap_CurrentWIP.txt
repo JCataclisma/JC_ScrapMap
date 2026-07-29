@@ -1,6 +1,7 @@
-What I am already throwing inside the map, to be released in near-future versions:
+This file has been deprecated and its original contents were removed by repository owner request.
 
--biomes (desert, burned forests, forests...);
--import updated in-game beacons data, so you can create your custom marks right upon them;
+Original file: Roadmap_CurrentWIP.txt
+Action: Contents replaced with this deprecation notice on 2026-07-29.
+A placeholder file named `rodmap-deprecated` was also added.
 
--WORK IN PROGRESS...
+If you need the original contents, they are preserved in the commit history.
