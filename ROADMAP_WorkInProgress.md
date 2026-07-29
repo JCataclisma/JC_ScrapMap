@@ -6,6 +6,8 @@ What I am already throwing inside the map, to be released in near-future version
 
 -import updated in-game beacons data, so you can create your custom marks right upon them;
 
+-import locations with chemicals and crude oil pits, so to make it easy to use in-game beacons and custom map marks.
+
 
 ...................
 
