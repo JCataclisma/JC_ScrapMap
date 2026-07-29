@@ -1,7 +1,1 @@
-This file has been deprecated and its original contents were removed by repository owner request.
-
-Original file: Roadmap_CurrentWIP.txt
-Action: Contents replaced with this deprecation notice on 2026-07-29.
-A placeholder file named `rodmap-deprecated` was also added.
-
-If you need the original contents, they are preserved in the commit history.
+OLD, DEPRECATED FILE.
