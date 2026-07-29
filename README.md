@@ -1,10 +1,4 @@
-# JC_ScrapMap
-A very simple and rough map for Scrap Mechanic, SPOILER-showing all the roads and POIs' positions for the selected savegame
-
-=======================================================
-
-
-# JC ScrapMap 0.6.0
+# JC ScrapMap 0.7.0
 
 JC ScrapMap is an offline map companion for **Scrap Mechanic 1.0 Survival**.
 It reads your save without changing it and opens the map in your normal web
@@ -40,6 +34,7 @@ Use this whenever you want to view or update the map.
 
 - It opens the selected save **read-only**.
 - It refreshes the last position Scrap Mechanic wrote to the save.
+- It refreshes physical player-built Beacons, including their icons and colors.
 - It never enables the road helper.
 - It does not require administrator permission.
 - It works while Scrap Mechanic is running when the game has already written
@@ -59,7 +54,8 @@ Repeat it only when:
 
 - mapping a save with a different seed;
 - a future Scrap Mechanic update changes world generation; or
-- an older captured map does not yet contain the Water layer.
+- an older captured map does not yet contain terrain regions or Schematic
+  Stations.
 
 Before choosing option 2, close Scrap Mechanic. Windows asks for administrator
 permission because this operation temporarily adds one marked line to one
@@ -71,7 +67,8 @@ Then:
 2. It temporarily installs the JC ScrapMap road exporter.
 3. Scrap Mechanic starts.
 4. Load the Survival world you want to map.
-5. Wait until the launcher reports that roads and water were captured.
+5. Wait until the launcher reports that roads, terrain regions, and Schematic
+   Stations were captured.
 6. Close Scrap Mechanic.
 7. The launcher restores the original script, verifies its exact hash, and
    removes the temporary exporter.
@@ -79,9 +76,16 @@ Then:
 After successful cleanup, ordinary Scrap Mechanic launches do not load JC
 ScrapMap.
 
+Generation runs in a separate progress window, so the main menu remains
+responsive. Water, Desert, and Burnt forest cells share one unchecked
+**Terrain regions** layer while retaining distinct colors. Captured Schematic
+Stations use the existing unchecked POI/spoiler layer.
+
 ## If Option 2 Is Interrupted
 
-Close Scrap Mechanic and choose:
+If Scrap Mechanic exits or crashes before capture, the progress window detects
+it and attempts verified automatic cleanup. If Windows, Steam, or the computer
+terminates the helper window itself, close Scrap Mechanic and choose:
 
 `3. Disable/repair road helper`
 
@@ -94,7 +98,7 @@ Option 4 shows whether the temporary road helper is currently enabled.
 
 JC ScrapMap creates these folders beside the launcher:
 
-- `imports` — exact road/water maps, stored by seed
+- `imports` — exact per-seed roads, terrain regions, and Schematic Stations
 - `mapper-data` — per-save map state and your private notes
 - `generated` — the currently displayed browser state
 - `.road-helper` — temporary recovery data used by option 2
@@ -133,4 +137,3 @@ This release does not yet declare an open-source license. Public visibility on
 GitHub permits inspection but is not, by itself, permission to redistribute or
 modify the code. Add an explicit license before advertising the project as
 open source.
-

@@ -1,4 +1,4 @@
-# JC ScrapMap 0.6.0
+# JC ScrapMap 0.7.0
 
 JC ScrapMap é um mapa offline auxiliar para **Scrap Mechanic 1.0 Survival**.
 Ele lê o seu save sem modificá-lo e abre o mapa no seu navegador web padrão.
@@ -30,6 +30,7 @@ Use sempre que quiser visualizar ou atualizar o mapa.
 
 * Abre o save selecionado em modo **read-only**
 * Atualiza a última posição registrada pelo Scrap Mechanic no save
+* Atualiza os Beacons físicos construídos pelo jogador, incluindo ícones e cores
 * Nunca ativa o road helper
 * Não requer permissões de administrador
 * Funciona enquanto o jogo está rodando (desde que já tenha salvo dados)
@@ -46,7 +47,7 @@ Repita apenas quando:
 
 * mapear um save com seed diferente
 * uma atualização futura do jogo alterar a geração do mundo
-* um mapa antigo não possuir a layer de Water
+* um mapa antigo ainda não possuir as regiões de terreno ou as Schematic Stations
 
 Antes de escolher esta opção, feche o Scrap Mechanic. O Windows pedirá permissão de administrador porque este processo modifica temporariamente um script de terrain.
 
@@ -56,15 +57,23 @@ Depois:
 2. Instala temporariamente o JC ScrapMap road exporter
 3. O Scrap Mechanic inicia
 4. Carregue o mundo Survival desejado
-5. Aguarde até o launcher indicar que roads e water foram capturados
+5. Aguarde até o launcher indicar que roads, regiões de terreno e Schematic Stations foram capturados
 6. Feche o jogo
 7. O launcher restaura o script original, verifica o hash e remove o exporter temporário
 
 Após a limpeza, o jogo volta ao normal sem carregar o JC ScrapMap.
 
+A geração ocorre em uma janela de progresso separada, portanto o menu principal
+continua respondendo. Water, Desert e Burnt forest compartilham uma única layer
+desmarcada chamada **Terrain regions**, mantendo cores diferentes. As Schematic
+Stations capturadas aparecem na layer existente e desmarcada de POIs/spoilers.
+
 ## If Option 2 Is Interrupted
 
-Feche o jogo e selecione:
+Se o Scrap Mechanic fechar ou travar antes da captura, a janela de progresso
+detecta a interrupção e tenta executar automaticamente a limpeza verificada. Se
+o Windows, Steam ou o computador encerrar a própria janela do helper, feche o
+jogo e selecione:
 
 `3. Disable/repair road helper`
 
@@ -77,7 +86,7 @@ A option 4 mostra se o road helper está ativo.
 
 O JC ScrapMap cria estas pastas:
 
-* `imports` — mapas de roads/water por seed
+* `imports` — roads, regiões de terreno e Schematic Stations exatas por seed
 * `mapper-data` — dados do mapa por save e suas anotações
 * `generated` — estado atual exibido no navegador
 * `.road-helper` — dados temporários de recuperação
