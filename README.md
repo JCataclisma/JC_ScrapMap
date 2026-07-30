@@ -1,145 +1,221 @@
 <img width="1912" height="885" alt="JC_ScrapMap" src="https://github.com/user-attachments/assets/cde27760-88af-4222-958e-acc9fbfe95fc" />
-# JC ScrapMap 0.7.1
+# JC ScrapMap
 
-JC ScrapMap is an offline map companion for **Scrap Mechanic 1.0 Survival**.
-It reads your save without changing it and opens the map in your normal web
-browser.
+> Exact roads are generated through an explicitly selected temporary helper.
+> The launcher backs up and patches one installed terrain script, launches the
+> game, captures the result, and restores the original script after the game
+> closes. See the safety warning below before using it.
 
-## Before You Start
+JC ScrapMap is an experimental, completely offline map companion for Scrap
+Mechanic 1.0.
 
-You need:
+## One-click start
 
-- 64-bit Windows 10 or newer
-- Scrap Mechanic 1.0 through Steam
-- A modern web browser
-
-Keep this entire folder together. Do not move individual files out of it.
-No Python installation or other programming tool is required. JC ScrapMap
-includes its own private runtime and does not install it into Windows.
-
-## Start
-
-Double-click:
+Download or clone the repository, then double-click:
 
 `Start JC ScrapMap.cmd`
 
-The launcher automatically finds the usual Scrap Mechanic installation and
-player-save locations. If more than one player profile exists, it asks you to
-choose one.
+The menu provides:
 
-Scrap Mechanic may be installed in any Steam library. The launcher reads
-Steam's registered installation and every path in
-`steamapps\libraryfolders.vdf`. If helper generation still cannot locate the
-game, it asks for the full Scrap Mechanic installation folder.
+1. **Open map** - rereads the selected save, refreshes its mapper state, and
+   opens the map without changing the game. If the map is already open, its
+   existing local server is refreshed instead of starting another one.
+2. **Generate exact roads** - asks for Windows administrator approval,
+   temporarily enables the helper, and starts Scrap Mechanic. Load the
+   Survival world you want to map, then close the game when finished. The
+   launcher restores the installed script, removes the temporary helper,
+   imports the roads, and opens that save's map.
+   After capture, JC ScrapMap validates and stores the result, then leaves a
+   clear summary visible until Enter. Return to the menu and choose **Open
+   map** when you are ready to view it.
+3. **Disable/repair road helper** - restores the recorded original script and
+   removes the mapper-owned helper after an interrupted session.
+4. **Show road-helper status** - reports whether the temporary hook is active.
+5. **Open diagnostic report** - opens `JC_ScrapMap_Diagnostic.txt` in Notepad.
+   It contains capture stages, seed, counts, and any error, but no save contents
+   or personal Windows folder names.
 
-## The Two Main Menu Options
+The launcher discovers Scrap Mechanic through Steam's registered installation
+and every path in `steamapps\libraryfolders.vdf`; the game does not need to be
+installed in Steam's default folder. If helper generation still cannot locate
+it, the helper requests the full installation folder explicitly.
 
-### 1. Open map
+The menu remains open after an action. Map servers open in their own ordinary
+PowerShell window; close a map server with `Ctrl+C` in that window. Generating
+roads uses a separate elevated progress window. Its final result remains
+visible until the player presses Enter, while the reusable menu remains
+available.
 
-Use this whenever you want to view or update the map.
+Players do not need to install Python, copy mods, edit Lua, locate the save
+database, or manage exported JSON manually. Release packages use only their
+private bundled Python runtime.
 
-- It opens the selected save **read-only**.
-- It refreshes the last position Scrap Mechanic wrote to the save.
-- It refreshes physical player-built Beacons, including their icons and colors.
-- It never enables the road helper.
-- It does not require administrator permission.
-- It works while Scrap Mechanic is running when the game has already written
-  its latest save data.
-- If the browser map is already open, it refreshes that map instead of starting
-  a second map server.
+### Exact-road safety warning
 
-The blue player symbol means **Last saved player position**. It is not live GPS:
-the game decides when to write its latest position.
+Generating new exact roads temporarily modifies
+`Survival\Scripts\terrain\terrain_overworld.lua`. This action is never
+performed by **Open map** and requires an explicit menu choice plus Windows
+administrator approval.
 
-### 2. Generate exact roads
+The helper:
 
-Normally use this **only once for each distinct Survival save seed**. If two
-saves use the same seed, they can share the same road map.
+- Refuses activation while Scrap Mechanic is running.
+- Saves the original script and its SHA-256 hash in `.road-helper`.
+- Adds one marked hook and installs one mapper-owned user mod.
+- Scans generated roads once when the selected world loads.
+- Stores the seed-specific result under `imports`.
+- Waits for Scrap Mechanic to close before restoring the script.
+- Verifies exact restoration by SHA-256 and removes the temporary mod.
+- Refuses to overwrite a script that changed unexpectedly.
 
-Repeat it only when:
+If Scrap Mechanic exits or crashes before capture, the generation window
+detects that the game process stopped and immediately attempts verified
+automatic cleanup. If Windows, Steam, or the computer terminates the helper
+window itself, choose **Disable/repair road helper** before launching the game
+again.
 
-- mapping a save with a different seed;
-- a future Scrap Mechanic update changes world generation; or
-- an older captured map does not yet contain terrain regions or Schematic
-  Stations.
+### Persistence
 
-Before choosing option 2, close Scrap Mechanic. Windows asks for administrator
-permission because this operation temporarily adds one marked line to one
-installed terrain script.
+Road maps are not temporary. Exact roads are stored by seed as
+`imports\roads-<seed>.json` and remain usable after the game, browser, server,
+and launcher close. Regenerating one seed replaces only that seed's exact-road
+snapshot. Starting Scrap Mechanic normally after verified helper cleanup does
+not load or run JC ScrapMap.
 
-Then:
+Road captures are matched to saves by world seed. If the selected save does
+not match an available capture, the map explains that the roads belong to
+another world instead of silently treating them as current.
 
-1. The launcher backs up and hashes the original script.
-2. It temporarily installs the JC ScrapMap road exporter.
-3. Scrap Mechanic starts.
-4. Load the Survival world you want to map.
-5. Wait until the launcher reports that roads, terrain regions, and Schematic
-   Stations were captured.
-6. Close Scrap Mechanic.
-7. The launcher restores the original script, verifies its exact hash, and
-   removes the temporary exporter.
+### Asking for help
 
-After successful cleanup, ordinary Scrap Mechanic launches do not load JC
-ScrapMap.
+After any road-generation attempt, choose **Open diagnostic report** from the
+main menu. You may send `JC_ScrapMap_Diagnostic.txt` with a bug report. This
+short report does not include save contents, player coordinates, notes, Steam
+IDs, or personal folder names.
 
-Generation runs in a separate progress window, so the main menu remains
-responsive. Water, Desert, and Burnt forest cells share one unchecked
-**Terrain regions** layer while retaining distinct colors. Captured Schematic
-Stations use the existing unchecked POI/spoiler layer.
+Custom markers and notes will be stored outside the game under
+`mapper-data\<save-identity>\markers.json`. They are a required upcoming map
+feature but are not yet available in the current browser interface.
 
-## If Option 2 Is Interrupted
+Prototype 0A proves that an external tool can:
 
-If Scrap Mechanic exits or crashes before capture, the progress window detects
-it and attempts verified automatic cleanup. If Windows, Steam, or the computer
-terminates the helper window itself, close Scrap Mechanic and choose:
+- Discover or accept the Scrap Mechanic installation and user paths.
+- Find Survival saves.
+- Switch among multiple saves from the browser interface.
+- Read selected save metadata using SQLite read-only mode.
+- Verify that the save hash, size, and timestamp do not change.
+- Assign a stable mapper identity and separate local data directory to each save.
+- Generate normalized local JSON state.
+- Display that state in a local, pannable and zoomable HTML interface.
 
-`3. Disable/repair road helper`
+The map does not provide live player telemetry. Each **Open map** action reads
+the latest persisted player position from the selected save and displays it as
+the **Last saved player position**. Scrap Mechanic may not flush that position
+merely because the player alt-tabs, so it is deliberately not labelled current
+or live.
 
-Do this before deleting the JC ScrapMap folder or launching the game again.
-The recovery copy inside `.road-helper` is required until repair completes.
+Each **Open map** action also refreshes player-built physical Beacons from the
+selected save. Their exact saved positions, configured colors, and icon types
+appear in the separate **Physical beacons** layer, which starts unchecked.
+Imported Beacons are read-only references and are never converted into custom
+notes automatically.
 
-Option 4 shows whether the temporary road helper is currently enabled.
+The explicit terrain-generation workflow captures exact Water, Desert, and
+Burnt forest cells. Their distinct colors share one unchecked **Terrain
+regions** layer to keep the layer list compact. It also captures exact
+Schematic Stations, which appear through the existing unchecked POI/spoiler
+layer. Older road files remain usable, but newly added terrain data requires
+generation again.
 
-## Local Data
+The map covers the complete 128 × 96-cell overworld boundary. It displays the
+confirmed new-character starting position and literal fixed POI coordinates
+from the active installed Survival generator. The early green diagnostic
+region around the starting location has been retired; it was only a visual
+boundary used during initial development and never represented terrain or a
+gameplay limit.
 
-JC ScrapMap creates these folders beside the launcher:
+The map can zoom out to 10 km and fit the complete overworld.
 
-- `imports` — exact per-seed roads, terrain regions, and Schematic Stations
-- `mapper-data` — per-save map state and your private notes
-- `generated` — the currently displayed browser state
-- `.road-helper` — temporary recovery data used by option 2
+An experimental Harvestable/Unit cell-density layer was removed in 0.3.1. It
+did not represent roads, terrain, current units, or reliable player discovery,
+so it was not useful to the navigation product.
 
-Your Scrap Mechanic save database is never written by JC ScrapMap.
+These anchors are not a complete terrain reconstruction and are not treated as
+the current player position or discovered-state information. Engine-specific
+biome, lake, and road generation remains unavailable until it can be reproduced
+or exported exactly.
 
-## Privacy and Networking
+Displayed fixed POIs are resolved through the active `poi.lua` database to
+their exact installed `.tileson` definitions. At close zoom, the map draws a
+compact top-down schematic from installed entity positions. The schematic is a
+structural reference, not a rendered game screenshot. Selection details retain
+the original developer label, tile filename, UUID, dimensions, and entity
+counts so unverified player-facing names are never presented as authoritative.
 
-- Completely offline after download
-- No analytics or tracking
-- No advertisements
-- No uploads
-- No remote map server
-- Browser server listens only on `127.0.0.1` on your computer
-- Bundled runtime is used only from the JC ScrapMap folder
+Generator anchors share one unchecked POI/spoiler layer. Their existence in
+the generator does not prove that the selected character discovered them.
+Discovery evidence remains diagnostic metadata and does not hide POIs.
 
-## Closing and Removing
+The starting position is initially discovered. Read-only save evidence can
+also classify an anchor when persisted quest state proves it was encountered.
+World-loading evidence alone is not treated as a player visit. Remaining
+generator anchors begin unknown and are hidden in an unchecked spoiler layer.
+While that layer is temporarily enabled, a selected anchor can be marked
+discovered manually.
+Manual discoveries are stored per save in
+`mapper-data\<save-identity>\discoveries.json`; the game save is never changed.
 
-Close a map-server PowerShell window with `Ctrl+C`.
+The interface displays `+Y` upward and `+X` to the right. Cardinal north and
+east will not be assigned until the relationship between world axes and
+player-facing compass direction has been verified experimentally.
 
-Before removing JC ScrapMap, use option 4. If it reports `ENABLED`, close the
-game and run option 3 first. When it reports `disabled`, you can delete this
-entire folder. See `SAFETY_AND_REMOVAL.md` for the complete inventory.
+## Requirements
 
-## Source Inspection
+- Windows
+- Python 3.10 or newer for this development prototype
+- A modern browser
 
-The JC ScrapMap program is included directly as readable PowerShell, Python,
-Lua, JavaScript, HTML, CSS, and JSON files. See `SOURCE.md`.
+The distributable version is intended to become a self-contained package that
+does not require users to install Python.
 
-The package also includes the official 64-bit CPython 3.14.6 embeddable runtime
-under `runtime/python`. Its license is included as
-`runtime/python/LICENSE.txt`. Players do not install or configure it.
-See `THIRD_PARTY_NOTICES.md` for its official source and verification hash.
+## Run
 
-This release does not yet declare an open-source license. Public visibility on
-GitHub permits inspection but is not, by itself, permission to redistribute or
-modify the code. Add an explicit license before advertising the project as
-open source.
+From PowerShell:
+
+```powershell
+.\launcher.ps1
+```
+
+Automatic detection uses the standard Steam installation and Scrap Mechanic
+user-data locations. Explicit paths can be supplied when required:
+
+```powershell
+.\launcher.ps1 `
+  -GamePath 'C:\Program Files (x86)\Steam\steamapps\common\Scrap Mechanic' `
+  -UserPath 'C:\Users\YourName\AppData\Roaming\Axolot Games\Scrap Mechanic\User\User_YourSteamId' `
+  -Save 'C:\Users\YourName\AppData\Roaming\Axolot Games\Scrap Mechanic\User\User_YourSteamId\Save\Survival\YourSave.db'
+```
+
+The interface is served only on `127.0.0.1`. It does not contact the internet.
+Press `Ctrl+C` in the launcher window to stop it.
+
+## Generate State Without Starting the Server
+
+```powershell
+python .\scrapmap.py --no-server
+```
+
+The normalized output is written atomically to `generated\state.json`.
+Each selected save also receives an independent copy under
+`mapper-data\<save-identity>\state.json`. Future markers, discoveries,
+breadcrumbs, and preferences will remain separated in that directory.
+
+## Safety
+
+- Save databases are opened with SQLite `mode=ro` and `PRAGMA query_only`.
+- The selected save is hashed before and after inspection.
+- Size and modification time are also checked.
+- Generated files remain inside the JC ScrapMap directory.
+- Manual backup names containing `Copia`, `.bak`, or `backup` are ignored during
+  automatic discovery.
+- No analytics, tracking, uploads, external assets, or remote services are used.
