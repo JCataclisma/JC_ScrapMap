@@ -1,0 +1,10 @@
+{
+  "allow_add_mods": false,
+  "custom_icons": false,
+  "description": "Read-only terrain road export helper for JC ScrapMap.",
+  "fileId": 0,
+  "localId": "8f3672f0-1d70-4a65-a47b-fd411c8cbf60",
+  "name": "JC ScrapMap Road Exporter",
+  "type": "Blocks and Parts",
+  "version": 1
+}
