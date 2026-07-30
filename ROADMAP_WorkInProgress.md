@@ -9,7 +9,7 @@ What I am already throwing inside the map, to be released in near-future version
 
 -show schematic stations alongside POI's layer. /* <<- DONE in version 0.7.1 */
 
--import locations with chemicals and crude oil pits, so to make it easy to use in-game beacons and custom map marks; (Working on it)
+-import locations with chemicals and crude oil pits, so to make it easy to use in-game beacons and custom map marks; /* Still working on it - for now, please keep relying on in-game beacons and/or custom mark maps for those as well, as such improvements are not yet guaranteed */
 
 
 ...................
