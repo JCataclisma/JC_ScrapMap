@@ -1,4 +1,4 @@
-# JC ScrapMap 0.7.0
+# JC ScrapMap 0.7.1
 
 JC ScrapMap is an offline map companion for **Scrap Mechanic 1.0 Survival**.
 It reads your save without changing it and opens the map in your normal web
@@ -25,6 +25,11 @@ Double-click:
 The launcher automatically finds the usual Scrap Mechanic installation and
 player-save locations. If more than one player profile exists, it asks you to
 choose one.
+
+Scrap Mechanic may be installed in any Steam library. The launcher reads
+Steam's registered installation and every path in
+`steamapps\libraryfolders.vdf`. If helper generation still cannot locate the
+game, it asks for the full Scrap Mechanic installation folder.
 
 ## The Two Main Menu Options
 
