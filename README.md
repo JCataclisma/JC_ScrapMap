@@ -1,5 +1,5 @@
 <img width="1912" height="885" alt="JC_ScrapMap" src="https://github.com/user-attachments/assets/cde27760-88af-4222-958e-acc9fbfe95fc" />
-# JC ScrapMap 0.7.4
+# JC ScrapMap
 
 > Exact roads are generated through an explicitly selected temporary helper.
 > The launcher backs up and patches one installed terrain script, launches the
@@ -22,18 +22,17 @@ The menu provides:
    existing local server is refreshed instead of starting another one.
 2. **Generate exact roads** - asks for Windows administrator approval,
    temporarily enables the helper, and starts Scrap Mechanic. Load the
-   Survival world you want to map, then close the game when finished. The
-   launcher restores the installed script, removes the temporary helper,
-   imports the roads, and opens that save's map.
-   After capture, JC ScrapMap validates and stores the result, then leaves a
-   clear summary visible until Enter. Return to the menu and choose **Open
-   map** when you are ready to view it.
+   Survival world you want to map. As soon as capture is validated, the helper
+   says the map data is ready and you may continue playing. When the game
+   eventually closes, the launcher restores the installed script and removes
+   the temporary helper.
 3. **Disable/repair road helper** - restores the recorded original script and
    removes the mapper-owned helper after an interrupted session.
 4. **Show road-helper status** - reports whether the temporary hook is active.
-5. **Open diagnostic report** - opens `JC_ScrapMap_Diagnostic.txt` in Notepad.
-   It contains capture stages, seed, counts, and any error, but no save contents
-   or personal Windows folder names.
+5. **Open diagnostic report** - opens the newest uniquely named
+   `JC_ScrapMap_Diagnostic_<timestamp>_<run-id>.txt` in Notepad. Every run is
+   retained; reports contain capture stages, seed, counts, and any error, but
+   no save contents or personal Windows folder names.
 
 The launcher discovers Scrap Mechanic through Steam's registered installation
 and every path in `steamapps\libraryfolders.vdf`; the game does not need to be
@@ -61,18 +60,25 @@ The helper:
 
 - Refuses activation while Scrap Mechanic is running.
 - Saves the original script and its SHA-256 hash in `.road-helper`.
-- Adds one marked hook and installs one mapper-owned user mod.
+- Adds one marked hook and one temporary exporter beside the built-in Survival
+  terrain scripts; it does not depend on local-mod registration.
 - Scans generated roads once when the selected world loads.
 - Stores the seed-specific result under `imports`.
 - Waits for Scrap Mechanic to close before restoring the script.
-- Verifies exact restoration by SHA-256 and removes the temporary mod.
+- Verifies exact restoration by SHA-256 and removes the temporary exporter and
+  its owned output directory.
 - Refuses to overwrite a script that changed unexpectedly.
 
 If Scrap Mechanic exits or crashes before capture, the generation window
 detects that the game process stopped and immediately attempts verified
-automatic cleanup. If Windows, Steam, or the computer terminates the helper
-window itself, choose **Disable/repair road helper** before launching the game
-again.
+automatic cleanup. Its diagnostic records process timing, the last exporter
+stage, invalid export details, recent privacy-filtered game-log lines, and
+matching Windows crash events. Each event is appended and flushed to its
+unique run file immediately; earlier run files are never overwritten.
+Exporter errors are contained and reported instead of being allowed to
+interrupt terrain generation. If Windows, Steam, or the computer terminates
+the helper window itself, choose **Disable/repair road helper** before
+launching the game again.
 
 ### Persistence
 
@@ -89,9 +95,10 @@ another world instead of silently treating them as current.
 ### Asking for help
 
 After any road-generation attempt, choose **Open diagnostic report** from the
-main menu. You may send `JC_ScrapMap_Diagnostic.txt` with a bug report. This
-short report does not include save contents, player coordinates, notes, Steam
-IDs, or personal folder names.
+main menu. You may send the newest
+`JC_ScrapMap_Diagnostic_<timestamp>_<run-id>.txt` with a bug report. This short
+report does not include save contents, player coordinates, notes, Steam IDs,
+or personal folder names.
 
 Custom markers and notes will be stored outside the game under
 `mapper-data\<save-identity>\markers.json`. They are a required upcoming map
