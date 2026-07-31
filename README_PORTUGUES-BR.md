@@ -1,5 +1,5 @@
 <img width="1912" height="885" alt="JC_ScrapMap" src="https://github.com/user-attachments/assets/5d9740ca-3139-4ab4-8b2c-22553feff3fc" />
-# JC ScrapMap 0.7.4
+# JC ScrapMap 0.7.7
 
 JC ScrapMap é um mapa auxiliar offline para Scrap Mechanic 1.0 Survival. Ele lê
 seus saves sem modificá-los e abre o mapa no navegador.
@@ -13,9 +13,10 @@ Mantenha todos os arquivos juntos na pasta extraída.
 
 1. **Open map** abre ou atualiza o mapa sem modificar o jogo.
 2. **Generate exact roads** inicia o jogo e captura roads, Water, Desert, Burnt
-   forest e Schematic Stations. Carregue o mundo desejado e depois feche o
-   jogo. Ao terminar, volte ao menu principal e escolha **Open map**. O mapa
-   não será mais aberto automaticamente.
+   forest e Schematic Stations. Carregue o mundo desejado. Assim que
+   **CAPTURE COMPLETE** aparecer, os dados estão prontos e você pode continuar
+   jogando. A restauração automática ocorre quando o jogo for fechado. Depois,
+   volte ao menu principal e escolha **Open map**.
 3. **Disable/repair road helper** restaura o helper após uma interrupção.
 4. **Show road-helper status** mostra o estado atual do helper.
 5. **Open diagnostic report** abre o relatório de diagnóstico no Bloco de
@@ -38,7 +39,7 @@ clara em vez de conectar silenciosamente ao processo errado.
 ## Relatório para suporte
 
 Após cada tentativa de geração, o arquivo
-`JC_ScrapMap_Diagnostic.txt` é criado na pasta principal do JC ScrapMap.
+`JC_ScrapMap_Diagnostic_<timestamp>_<run-id>.txt` é criado na pasta principal do JC ScrapMap.
 Também é possível abri-lo pela opção 5 do menu.
 
 Esse relatório pode ser enviado junto com um pedido de ajuda. Ele informa as
