@@ -1,60 +1,53 @@
-<img width="1912" height="885" alt="JC_ScrapMap" src="https://github.com/user-attachments/assets/5d9740ca-3139-4ab4-8b2c-22553feff3fc" />
-# JC ScrapMap 0.7.7
+# JC ScrapMap 0.8.0-rc1
 
-JC ScrapMap é um mapa auxiliar offline para Scrap Mechanic 1.0 Survival. Ele lê
-seus saves sem modificá-los e abre o mapa no navegador.
+O JC ScrapMap é um mapa auxiliar offline para o modo Survival do Scrap
+Mechanic.
+
+Esta versão candidata lê o terreno exato diretamente do banco de dados do save
+selecionado. Ele não altera o Scrap Mechanic, não inicia o jogo, não instala
+arquivos Lua e não exige privilégios de administrador.
 
 ## Como iniciar
 
-Dê dois cliques em `Start JC ScrapMap.cmd`. Não é necessário instalar Python.
-Mantenha todos os arquivos juntos na pasta extraída.
+1. Extraia a pasta completa.
+2. Clique duas vezes em `Start JC ScrapMap.cmd`.
+3. O mapa abrirá no navegador padrão.
+4. Use o seletor de saves no mapa para alternar entre mundos Survival.
 
-## Menu
+O runtime Python privado incluído é usado automaticamente. Não é necessário
+instalar Python.
 
-1. **Open map** abre ou atualiza o mapa sem modificar o jogo.
-2. **Generate exact roads** inicia o jogo e captura roads, Water, Desert, Burnt
-   forest e Schematic Stations. Carregue o mundo desejado. Assim que
-   **CAPTURE COMPLETE** aparecer, os dados estão prontos e você pode continuar
-   jogando. A restauração automática ocorre quando o jogo for fechado. Depois,
-   volte ao menu principal e escolha **Open map**.
-3. **Disable/repair road helper** restaura o helper após uma interrupção.
-4. **Show road-helper status** mostra o estado atual do helper.
-5. **Open diagnostic report** abre o relatório de diagnóstico no Bloco de
-   Notas.
-6. **Exit** fecha o menu.
+## Dados exatos
 
-A janela de geração permanece aberta mostrando **SUCCESS** ou o erro até você
-pressionar Enter.
+O terreno persistido pelo próprio jogo contém as células já geradas. O JC
+ScrapMap abre o SQLite somente para leitura e mostra:
 
-Antes de mostrar `SUCCESS`, a versão 0.7.4 grava o resultado de forma atômica e
-abre novamente o arquivo final para confirmar a seed e todas as contagens. O
-relatório mostra uma etapa `IMPORT` quando essa validação termina.
+- estradas e suas direções;
+- regiões de água/lago;
+- deserto;
+- floresta queimada;
+- Estações de Esquemas.
 
-A versão 0.7.4 também corrige o erro `Unknown save identity` ao alternar entre
-vários saves. As identidades agora permanecem estáveis quando o jogo atualiza o
-save, e a lista é verificada novamente a cada seleção. Se outra pasta extraída
-do JC ScrapMap já estiver usando a porta local, o launcher mostra uma mensagem
-clara em vez de conectar silenciosamente ao processo errado.
+O hash, tamanho e horário do save são verificados antes e depois da leitura.
 
-## Relatório para suporte
+## Privacidade
 
-Após cada tentativa de geração, o arquivo
-`JC_ScrapMap_Diagnostic_<timestamp>_<run-id>.txt` é criado na pasta principal do JC ScrapMap.
-Também é possível abri-lo pela opção 5 do menu.
+- O servidor local aceita conexões apenas em `127.0.0.1`.
+- Nenhum save, marcador, Steam ID ou dado do mapa é enviado.
+- Não é necessária conexão com a internet.
+- O save nunca é aberto para escrita.
+- Notas e estado do mapa ficam dentro da pasta extraída do aplicativo.
 
-Esse relatório pode ser enviado junto com um pedido de ajuda. Ele informa as
-etapas, a seed, as contagens e o erro ocorrido. Ele não contém o conteúdo do
-save, coordenadas do jogador, anotações, Steam ID ou nomes de pastas pessoais.
+## Logs ao vivo e persistentes
 
-## Segurança
+A janela do PowerShell permanece aberta enquanto o servidor local do mapa
+estiver funcionando e mostra os eventos operacionais ao vivo. Fechar essa
+janela encerra o servidor.
 
-O helper modifica temporariamente um script de terrain, somente após a escolha
-explícita da opção 2 e a autorização de administrador. O arquivo original é
-copiado, verificado por hash e restaurado após o jogo fechar. Os bancos de dados
-dos saves são sempre abertos em modo somente leitura.
+Os mesmos eventos ficam registrados em `logs\jc-scrapmap.log`. O arquivo gira
+ao atingir 1 MB e mantém três cópias anteriores. Ele não registra conteúdo do
+save, usuário do Windows, Steam ID, caminhos pessoais, coordenadas, notas,
+marcadores, corpos de requisições HTTP ou conteúdo do terreno.
 
-Se a geração for interrompida e o status indicar `ENABLED` ou
-`RECOVERY REQUIRED`, feche o jogo e use a opção 3 antes de apagar a pasta.
-
-O programa funciona offline, não possui analytics, tracking, anúncios ou
-uploads, e seu servidor local escuta apenas em `127.0.0.1`.
+Esta é a versão candidata `0.8.0-rc1`, destinada ao teste final antes da
+versão `0.8.0`.
