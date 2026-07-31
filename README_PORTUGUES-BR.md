@@ -1,5 +1,6 @@
 <img width="1912" height="885" alt="JC_ScrapMap" src="https://github.com/user-attachments/assets/6bc95c5b-edf5-4de1-8aee-a3b5d881ada5" />
-# JC ScrapMap 0.8.0-rc1
+
+# JC ScrapMap 0.8.1-rc2
 
 O JC ScrapMap é um mapa auxiliar offline para o modo Survival do Scrap
 Mechanic.
@@ -50,5 +51,6 @@ ao atingir 1 MB e mantém três cópias anteriores. Ele não registra conteúdo 
 save, usuário do Windows, Steam ID, caminhos pessoais, coordenadas, notas,
 marcadores, corpos de requisições HTTP ou conteúdo do terreno.
 
-Esta é a versão candidata `0.8.0-rc1`, destinada ao teste final antes da
-versão `0.8.0`.
+Esta é a versão candidata `0.8.1-rc2`. Os campos
+de prisioneiros e as ruínas comuns podem ser exibidos em camadas separadas,
+ambas desativadas por padrão.
