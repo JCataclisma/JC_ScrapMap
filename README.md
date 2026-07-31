@@ -1,4 +1,5 @@
-![Uploading JC_ScrapMap.png…]()
+<img width="1912" height="885" alt="JC_ScrapMap" src="https://github.com/user-attachments/assets/ab971df4-aebb-4b4d-8b45-6071269072c2" />
+
 # JC ScrapMap 0.8.0-rc1
 
 JC ScrapMap is an offline companion map for Scrap Mechanic Survival.
