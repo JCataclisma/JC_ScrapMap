@@ -2,6 +2,10 @@
 
 # JC ScrapMap 0.8.1-rc2
 
+::::::::::::::::::
+Baixe e descompacte "JC_ScrapMap-v0.8.1-rc2.zip"
+:::::::::::::::::::::::::::::::::::::::::::::::::
+
 O JC ScrapMap é um mapa auxiliar offline para o modo Survival do Scrap
 Mechanic.
 
