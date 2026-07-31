@@ -1,5 +1,5 @@
 <img width="1912" height="885" alt="JC_ScrapMap" src="https://github.com/user-attachments/assets/cde27760-88af-4222-958e-acc9fbfe95fc" />
-# JC ScrapMap
+# JC ScrapMap 0.7.7
 
 > Exact roads are generated through an explicitly selected temporary helper.
 > The launcher backs up and patches one installed terrain script, launches the
