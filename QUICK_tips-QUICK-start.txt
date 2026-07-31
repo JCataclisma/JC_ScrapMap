@@ -1,0 +1,11 @@
+Always nice to point these out and remember: 
+
+- You do NOT need to close the game to update player position, but you DO NEED to leave the savegame/world (and keep the Scrap Mechanic running, if you will), then Alt-Tab to your browser tab with the map and reload it - but it might be much more reliable if you close it and run again.
+
+Only THEN it will actually update both the player and beacons positions - as well as anything that might have eventually changed regarding the roads due to some game update or stuff like that.
+
+- You do NOT need to have the game itself open - not even Steam - to run the map: you can check it ANYTIME, including player's position ;-) 
+
+- You do NOT need to be online either: the main reason whyt the download size is about 12 MB is exactly because it holds all the tools needed to extract, compile and show you the information;
+
+- You do NOT need to download or install ANYTHING else than the .ZIP file - all the data will be extracted from your selected savefiles (in-game world).
