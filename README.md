@@ -1,3 +1,4 @@
+![Uploading JC_ScrapMap.png…]()
 # JC ScrapMap 0.8.0-rc1
 
 JC ScrapMap is an offline companion map for Scrap Mechanic Survival.
