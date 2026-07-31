@@ -1,6 +1,6 @@
 <img width="1912" height="885" alt="JC_ScrapMap" src="https://github.com/user-attachments/assets/ab971df4-aebb-4b4d-8b45-6071269072c2" />
 
-# JC ScrapMap 0.8.0-rc1
+# JC ScrapMap 0.8.1-rc2
 
 JC ScrapMap is an offline companion map for Scrap Mechanic Survival.
 
@@ -69,4 +69,6 @@ release candidate.
 
 ## Release-candidate status
 
-This is `0.8.0-rc1`, intended for final pre-release testing before `0.8.0`.
+This is the `0.8.1-rc2` release candidate. Prisoner camps
+and ordinary lootable ruins can be displayed from separate layers, both
+disabled by default.
