@@ -1,26 +1,21 @@
-# JC ScrapMap 0.8.0-rc1
+# JC ScrapMap 0.8.1-rc2
 
-This release candidate replaces the temporary in-game terrain
-exporter workflow with direct read-only extraction of Scrap Mechanic's
-persisted overworld terrain.
+Release candidate based on the direct-save `0.8.0-rc1` approach.
 
-## Included
+## Added
 
-- Exact roads and direction masks from the selected save.
-- Exact water, desert, and burnt-forest regions.
-- Exact Schematic Station cells.
-- Existing save switching, player position, beacons, markers, discoveries,
-  local browser map, and offline behavior.
-- Bundled private Python runtime.
-- Live PowerShell operational output plus a privacy-conscious rolling log.
+- Exact positions of generated terrain tiles authored with a caged farmer.
+- A separate **Prisoner camps** layer, disabled by default.
+- Bright-orange geometric hash markers with a dark outline.
+- Exact positions of ordinary lootable ruins across supported biomes.
+- A separate **Ruins** layer, disabled by default, with stone-blue
+  broken-wall markers.
+- Exact autumn-forest cells in the existing terrain-regions layer, rendered
+  with a translucent lavender-pink fill.
 
-## Removed from this release workflow
+## Compatibility
 
-- Administrator elevation.
-- Installed terrain-script patching.
-- Temporary Lua exporter installation.
-- Scrap Mechanic launch and process monitoring.
-- Road-capture imports, recovery state, and game-side diagnostic reports.
+- Saves whose `Game` table does not contain the optional `uniqueIds` column
+  no longer prevent the selected world or save selector from opening.
 
-The previous 0.7.10 source and release remain unchanged elsewhere in the
-project.
+All map extraction remains read-only and offline.
