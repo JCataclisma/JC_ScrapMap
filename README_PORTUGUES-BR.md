@@ -1,10 +1,6 @@
 <img width="1912" height="885" alt="JC_ScrapMap" src="https://github.com/user-attachments/assets/6bc95c5b-edf5-4de1-8aee-a3b5d881ada5" />
 
-# JC ScrapMap 0.8.1-rc2
-
-::::::::::::::::::
-Baixe e descompacte "JC_ScrapMap-v0.8.1-rc2.zip"
-:::::::::::::::::::::::::::::::::::::::::::::::::
+# JC ScrapMap 0.8.3-rc3
 
 O JC ScrapMap é um mapa auxiliar offline para o modo Survival do Scrap
 Mechanic.
@@ -32,7 +28,12 @@ ScrapMap abre o SQLite somente para leitura e mostra:
 - regiões de água/lago;
 - deserto;
 - floresta queimada;
-- Estações de Esquemas.
+- Estações de Esquemas;
+- Armazéns comuns de 2, 3 e 4 andares.
+
+Os Armazéns comuns e as Estações de Esquemas compartilham a camada opcional
+**Armazéns e estações de esquemas**. O Armazém fixo de missão permanece em
+**Todos os POIs / pontos de referência**.
 
 O hash, tamanho e horário do save são verificados antes e depois da leitura.
 
@@ -55,6 +56,6 @@ ao atingir 1 MB e mantém três cópias anteriores. Ele não registra conteúdo 
 save, usuário do Windows, Steam ID, caminhos pessoais, coordenadas, notas,
 marcadores, corpos de requisições HTTP ou conteúdo do terreno.
 
-Esta é a versão candidata `0.8.1-rc2`. Os campos
-de prisioneiros e as ruínas comuns podem ser exibidos em camadas separadas,
-ambas desativadas por padrão.
+Esta é a versão candidata `0.8.3-rc3`. Os campos de prisioneiros e as ruínas
+comuns continuam em suas camadas separadas. Os detalhes do save selecionado
+podem ser expandidos ou recolhidos para liberar espaço para mais camadas.
