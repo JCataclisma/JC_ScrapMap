@@ -1,9 +1,6 @@
 <img width="1912" height="885" alt="JC_ScrapMap" src="https://github.com/user-attachments/assets/ab971df4-aebb-4b4d-8b45-6071269072c2" />
 
-# JC ScrapMap 0.8.1-rc2
-::::::::::::::::::
-Download and unpack "JC_ScrapMap-v0.8.1-rc2.zip"
-:::::::::::::::::::::::::::::::::::::::::::::::::
+# JC ScrapMap 0.8.3-rc3
 
 JC ScrapMap is an offline companion map for Scrap Mechanic Survival.
 
@@ -31,7 +28,12 @@ read-only mode and displays:
 - water/lake regions;
 - desert regions;
 - burnt-forest regions;
-- Schematic Stations.
+- Schematic Stations;
+- regular 2-, 3-, and 4-floor Warehouses.
+
+Regular Warehouses and Schematic Stations share the unchecked **Warehouses &
+schematic stations** spoiler layer. The fixed quest Warehouse remains in
+**All POIs / anchors**.
 
 The selected save is hashed before and after inspection. Map generation fails
 if its size, timestamp, or SHA-256 changes during the operation.
@@ -72,6 +74,6 @@ release candidate.
 
 ## Release-candidate status
 
-This is the `0.8.1-rc2` release candidate. Prisoner camps
-and ordinary lootable ruins can be displayed from separate layers, both
-disabled by default.
+This is the `0.8.3-rc3` release candidate. Prisoner camps and ordinary
+lootable ruins remain in their existing separate layers. Selected-save details
+can be expanded or collapsed to leave more room for layer controls.
