@@ -1,8 +1,16 @@
-# JC ScrapMap 0.8.1-rc2
+# JC ScrapMap 0.8.3-rc3
 
-Release candidate based on the direct-save `0.8.0-rc1` approach.
+Release candidate based directly on the trusted unpacked `0.8.1-rc2`
+release supplied by the user.
 
 ## Added
+
+- Exact regular 2-, 3-, and 4-floor Warehouse positions read directly from
+  persisted terrain.
+- A separate **Warehouses & schematic stations** spoiler layer, disabled by
+  default. The fixed quest Warehouse remains in **All POIs / anchors**.
+- A collapsible **Selected save** panel that remembers its open or closed
+  state for the browser session.
 
 - Exact positions of generated terrain tiles authored with a caged farmer.
 - A separate **Prisoner camps** layer, disabled by default.
