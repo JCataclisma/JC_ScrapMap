@@ -25,14 +25,15 @@ cell flags and terrain UIDs. JC ScrapMap reads these values using SQLite
 read-only mode and displays:
 
 - directional roads;
-- water/lake regions;
-- desert regions;
-- burnt-forest regions;
+- water/lake regions (BLUE areas);
+- desert regions (TAN/LIGHT BROWN areas);
+- burnt-forest regions (BROWN areas);
+- autumn-forests (LIGHT PURPLE/PINK areas);
 - Schematic Stations;
 - regular 2-, 3-, and 4-floor Warehouses.
 
 Regular Warehouses and Schematic Stations share the unchecked **Warehouses &
-schematic stations** spoiler layer. The fixed quest Warehouse remains in
+schematic stations** spoiler layer. The fixed quest Warehouses remains in
 **All POIs / anchors**.
 
 The selected save is hashed before and after inspection. Map generation fails
