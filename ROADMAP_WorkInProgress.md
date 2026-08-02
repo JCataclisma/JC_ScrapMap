@@ -6,7 +6,7 @@ What I am already throwing inside the map, to be released in near-future version
 
 - all those loot/abandoned buildings are also on the plans - right now we got ruins (lootable buildings), warehouses, prisoner camps, so it's just better to add custom marks for those not present yet;
 
-- biomes (desert, burned forests, forests...); /* <<- DONE in version 0.7.1 */
+- biomes (desert, burned forests, autumn-forests...); /* <<- DONE in version 0.7.1 */
 
 - import updated in-game beacons data, so you can create your custom marks right upon them; /* <<- DONE in version 0.7.1 */
 
