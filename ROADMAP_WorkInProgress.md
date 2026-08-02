@@ -4,7 +4,7 @@ What I am already throwing inside the map, to be released in near-future version
 
 - regular forests and rock boulders haven't been easy to show as I wanted them to, so are not implemented in the map (yet);
 
-- all those loot/abandoned buildings are also on the plans - right now it's just better to add custom marks for them;
+- all those loot/abandoned buildings are also on the plans - right now we got ruins (lootable buildings), warehouses, prisoner camps, so it's just better to add custom marks for those not present yet;
 
 - biomes (desert, burned forests, forests...); /* <<- DONE in version 0.7.1 */
 
