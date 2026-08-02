@@ -12,9 +12,9 @@ What I am already throwing inside the map, to be released in near-future version
 
 - show schematic stations alongside POI's layer; /* <<- DONE in version 0.7.1 */
 
-- prisoners camp (with an exclusive layer/checkbox);
+- prisoners camp (with an exclusive layer/checkbox); /* <<- DONE in version 0.8.3-rc3 */
 
-- looting buildings/ruins;
+- looting buildings/ruins; /* <<- DONE in version 0.8.3-rc3 */
 
 - more biomes;
 
