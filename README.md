@@ -1,6 +1,6 @@
 <img width="1912" height="885" alt="JC_ScrapMap" src="https://github.com/user-attachments/assets/ab971df4-aebb-4b4d-8b45-6071269072c2" />
 
-# JC ScrapMap 0.8.3-rc3
+# JC ScrapMap 0.9.1-rc1
 
 JC ScrapMap is an offline companion map for Scrap Mechanic Survival.
 
@@ -14,6 +14,14 @@ files, or require administrator privileges.
 2. Double-click `Start JC ScrapMap.cmd`.
 3. The map opens in the default browser.
 4. Use the save selector in the map to switch Survival worlds.
+
+For an always-on-top companion window, double-click
+`Start JC ScrapMap Overlay.cmd`. This optional mode uses Microsoft Edge and is
+most reliable while Scrap Mechanic is running in Borderless Windowed mode.
+
+Drag the map's left and right dividers to resize or nearly collapse the side
+panels. Double-click either divider to restore that panel's default width.
+Panel widths are remembered in the browser.
 
 The bundled private Python runtime is used automatically. No Python
 installation is required.
@@ -33,7 +41,7 @@ read-only mode and displays:
 - regular 2-, 3-, and 4-floor Warehouses.
 
 Regular Warehouses and Schematic Stations share the unchecked **Warehouses &
-schematic stations** spoiler layer. The fixed quest Warehouses remains in
+schematic stations** spoiler layer. The fixed quest Warehouse remains in
 **All POIs / anchors**.
 
 The selected save is hashed before and after inspection. Map generation fails
@@ -75,6 +83,8 @@ release candidate.
 
 ## Release-candidate status
 
-This is the `0.8.3-rc3` release candidate. Prisoner camps and ordinary
+This is the `0.9.1-rc1` release candidate. Prisoner camps and ordinary
 lootable ruins remain in their existing separate layers. Selected-save details
-can be expanded or collapsed to leave more room for layer controls.
+can be expanded or collapsed to leave more room for layer controls. The new
+Underground entrances layer identifies surface access areas; underground maps
+are reserved for future versions.
