@@ -26,6 +26,10 @@ Panel widths are remembered in the browser.
 The bundled private Python runtime is used automatically. No Python
 installation is required.
 
+If you have installed a new version and want to import your custom notes from a previous installation, you will need to do that manually.
+Just copy the folder "mapper-data" from the older into the new one, and it should do.
+If you have already create new notes on the latest install, then you need to open both desired text files and merge them manually (or try to use some A.I. for that).
+
 ## Exact map data
 
 The regular overworld terrain stored by Scrap Mechanic contains the generated
