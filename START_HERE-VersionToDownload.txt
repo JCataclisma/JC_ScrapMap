@@ -12,7 +12,8 @@ The regular MapTab will work the same for both, but when you attempt to run the 
 Now the stuff below works for both regular MapTab and overlay version.
 Always nice to point these out and remember: 
 
-- You do NOT need to close the game to update player position, but you DO NEED to leave the savegame/world (and keep the Scrap Mechanic running, if you will), then Alt-Tab to your browser tab with the map and reload it - but it might be much more reliable if you close it and run again.
+- You do NOT need to close the game to update player position, but you DO NEED to leave the savegame/world (and keep the Scrap Mechanic running, if you will), 
+then Alt-Tab to your browser tab with the map and reload it - but it might be much more reliable if you close it and run the app (.cmd file) again.
 
 Only THEN it will actually update both the player and beacons positions - as well as anything that might have eventually changed regarding the roads due to some game update or stuff like that.
 
