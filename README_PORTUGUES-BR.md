@@ -9,6 +9,9 @@ Esta versão candidata lê o terreno exato diretamente do banco de dados do save
 selecionado. Ele não altera o Scrap Mechanic, não inicia o jogo, não instala
 arquivos Lua e não exige privilégios de administrador.
 
+Link para a página de discussões na Steam (em inglês):
+https://steamcommunity.com/app/387990/discussions/0/592937127158815868
+
 ## Como iniciar
 
 1. Extraia a pasta completa.
