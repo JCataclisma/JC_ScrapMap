@@ -36,7 +36,8 @@ If you have already create new notes on the latest install, then you need to ope
 ## Exact map data
 
 The regular overworld terrain stored by Scrap Mechanic contains the generated
-cell flags and terrain UIDs. JC ScrapMap reads these values using SQLite
+cell flags and terrain UIDs. 
+JC ScrapMap reads these values using SQLite
 read-only mode and displays:
 
 - directional roads;
