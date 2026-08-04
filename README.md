@@ -8,6 +8,9 @@ This release candidate reads exact generated terrain directly from the selected 
 database. It does not modify Scrap Mechanic, launch the game, install Lua
 files, or require administrator privileges.
 
+Link for original thread on Steam Discussion:
+https://steamcommunity.com/app/387990/discussions/0/592937127158815868
+
 ## Start
 
 1. Extract the complete folder.
