@@ -1,6 +1,23 @@
-# JC ScrapMap 0.9.1-rc1
+# JC ScrapMap 0.9.3-rc3
 
-Release candidate based on the verified runnable `0.8.3-rc3` milestone.
+Runnable test candidate based on the preserved `0.9.2-rc2` candidate.
+
+- Recognizes standard, desert, field, and forest Schematic Station tiles.
+- Adds all 21 fixed and generated builder quests to the dedicated
+  **Builder Quests** layer.
+- Removes the Woc house and resource car quests from **All POIs / anchors**.
+- Uses blue map squares for warehouses/schematic stations and yellow map
+  squares for Builder Quests.
+
+## Overlay compatibility
+
+- Replaced the Edge-only overlay launcher with an explicit browser picker.
+- Detects installed Google Chrome, Brave, Vivaldi, Chromium, Opera, and
+  Microsoft Edge builds in their usual Windows locations.
+- Supports manually selecting another Chromium-family browser executable.
+- Remembers the choice locally and offers a normal default-browser fallback.
+- Adds no browser binaries, libraries, runtimes, or installation steps.
+- The regular map launcher and browser behavior remain unchanged.
 
 ## Added
 
