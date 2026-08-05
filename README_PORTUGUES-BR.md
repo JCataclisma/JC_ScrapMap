@@ -1,6 +1,6 @@
 <img width="1912" height="885" alt="JC_ScrapMap" src="https://github.com/user-attachments/assets/6bc95c5b-edf5-4de1-8aee-a3b5d881ada5" />
 
-# JC ScrapMap 0.9.1-rc1
+# JC ScrapMap 0.9.3-rc3
 
 O JC ScrapMap é um mapa auxiliar offline para o modo Survival do Scrap
 Mechanic.
@@ -9,15 +9,19 @@ Esta versão candidata lê o terreno exato diretamente do banco de dados do save
 selecionado. Ele não altera o Scrap Mechanic, não inicia o jogo, não instala
 arquivos Lua e não exige privilégios de administrador.
 
-Link para a página de discussões na Steam (em inglês):
-https://steamcommunity.com/app/387990/discussions/0/592937127158815868
-
 ## Como iniciar
 
 1. Extraia a pasta completa.
 2. Clique duas vezes em `Start JC ScrapMap.cmd`.
 3. O mapa abrirá no navegador padrão.
 4. Use o seletor de saves no mapa para alternar entre mundos Survival.
+
+Para abrir uma janela auxiliar sempre visível, clique duas vezes em
+`Start JC ScrapMap Overlay.cmd`. Escolha um navegador compatível já instalado
+no computador. O seletor detecta Google Chrome, Brave, Vivaldi, Chromium,
+Opera e Microsoft Edge, e também permite indicar manualmente outro executável
+da família Chromium. O JC ScrapMap não inclui nem instala nenhum navegador.
+A opção de abrir no navegador padrão funciona sem o modo sempre visível.
 
 O runtime Python privado incluído é usado automaticamente. Não é necessário
 instalar Python.
@@ -59,6 +63,6 @@ ao atingir 1 MB e mantém três cópias anteriores. Ele não registra conteúdo 
 save, usuário do Windows, Steam ID, caminhos pessoais, coordenadas, notas,
 marcadores, corpos de requisições HTTP ou conteúdo do terreno.
 
-Esta é a versão candidata `0.9.1-rc1`. Os campos de prisioneiros e as ruínas
+Esta é a versão candidata `0.9.3-rc3`. Os campos de prisioneiros e as ruínas
 comuns continuam em suas camadas separadas. Os detalhes do save selecionado
 podem ser expandidos ou recolhidos para liberar espaço para mais camadas.
