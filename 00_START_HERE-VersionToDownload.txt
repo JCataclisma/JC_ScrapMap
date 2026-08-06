@@ -1,4 +1,5 @@
 "Dev/Unstable" versions are usually a few steps ahead of current "v.x" version, still experimental and not yet decently tested, so any feedback for those might be completely dismissed for evaluation.
+You can either download the file already packed as .ZIP, or to access the open folder with the same name and download them files and folder by yourself, in case are there any suspicious of virus or malware from your installed softwares. 
 
 =======================
 
