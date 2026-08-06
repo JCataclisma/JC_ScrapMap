@@ -1,5 +1,13 @@
 # JC ScrapMap 0.9.6 (working version)
 
+- Adds a disabled-by-default **Vehicles** layer that identifies movable
+  creations containing a gas or electric engine.
+- Excludes fixed, ground/world-connected engine-bearing objects to avoid
+  incorrectly marking doors and other machinery as vehicles.
+- Keeps engine-powered creations attached to a lift eligible, helping locate
+  vehicles that were thrown far away during lift collisions.
+- Shows the selected vehicle's engine type, position, and identification
+  details in the lower-left information panel.
 - Adds an expandable underground-floor panel beneath Available saves.
 - Shows saved Vault value, next access-card target, and remaining value.
 - Lists all eight main underground depths with generated, accessible, reached,
