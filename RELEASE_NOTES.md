@@ -1,6 +1,17 @@
-# JC ScrapMap 0.9.3-rc3
+# JC ScrapMap 0.9.6 (working version)
 
-Runnable test candidate based on the preserved `0.9.2-rc2` candidate.
+- Adds an expandable underground-floor panel beneath Available saves.
+- Shows saved Vault value, next access-card target, and remaining value.
+- Lists all eight main underground depths with generated, accessible, reached,
+  and locked status.
+- Opens generated floors in separate rough-map tabs showing the complete floor
+  extent and saved voxel/resource activity cells.
+
+Release based on the preserved `0.9.3-rc3` release.
+
+- Adds a disabled-by-default **Chemical & Oil Pits** layer.
+- Shows exact 1x1 and 2x2 chemical/crude-oil terrain placements as violet
+  circles while preserving all existing layers.
 
 - Recognizes standard, desert, field, and forest Schematic Station tiles.
 - Adds all 21 fixed and generated builder quests to the dedicated
