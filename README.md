@@ -1,10 +1,10 @@
 <img width="1912" height="885" alt="JC_ScrapMap" src="https://github.com/user-attachments/assets/ab971df4-aebb-4b4d-8b45-6071269072c2" />
 
-# JC ScrapMap 0.9.3-rc3
+# JC ScrapMap 0.9.6
 
 JC ScrapMap is an offline companion map for Scrap Mechanic Survival.
 
-This release candidate reads exact generated terrain directly from the selected save
+This release reads exact generated terrain directly from the selected save
 database. It does not modify Scrap Mechanic, launch the game, install Lua
 files, or require administrator privileges.
 
@@ -87,11 +87,11 @@ request bodies, or decoded terrain contents.
 This package intentionally contains no road helper, terrain hook, exporter,
 administrator prompt, recovery backup, or game-side diagnostic workflow. The
 previous helper-based releases remain separate and are not modified by this
-release candidate.
+release.
 
 ## Release-candidate status
 
-This is the `0.9.3-rc3` release candidate. Prisoner camps and ordinary
+This is the `0.9.6` working version. Prisoner camps and ordinary
 lootable ruins remain in their existing separate layers. Selected-save details
 can be expanded or collapsed to leave more room for layer controls. The new
 Underground entrances layer identifies surface access areas; underground maps
