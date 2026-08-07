@@ -1,6 +1,7 @@
 What I am already throwing inside the map, to be released in near-future versions:
 
 .......................................
+--=== current efforts are on improving the underground maps for resources === --
 
 - regular forests and rock boulders haven't been easy to show as I wanted them to, so are not implemented in the map (yet);
 
