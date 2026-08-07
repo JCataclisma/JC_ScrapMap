@@ -1,6 +1,6 @@
 <img width="1912" height="885" alt="JC_ScrapMap" src="https://github.com/user-attachments/assets/ab971df4-aebb-4b4d-8b45-6071269072c2" />
 
-# JC ScrapMap 0.9.6
+# JC ScrapMap 0.9.7
 
 JC ScrapMap is an offline companion map for Scrap Mechanic Survival.
 
@@ -91,7 +91,7 @@ release.
 
 ## Release-candidate status
 
-This is the `0.9.6` working version. Prisoner camps and ordinary
+This is the `0.9.7` working version. Prisoner camps and ordinary
 lootable ruins remain in their existing separate layers. Selected-save details
 can be expanded or collapsed to leave more room for layer controls. The new
 Underground entrances layer identifies surface access areas; underground maps
