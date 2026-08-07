@@ -1,12 +1,15 @@
-# JC ScrapMap 0.9.6 (working version)
+# JC ScrapMap 0.9.7 (working version)
 
-- Adds a disabled-by-default **Vehicles** layer that identifies movable
-  creations containing a gas or electric engine.
+- Finds movable engine-less creations that contain both a driver's seat and a
+  sport or off-road suspension.
+
+- Keeps the disabled-by-default **Vehicles** layer for movable creations with
+  gas/electric engines and now also recognizes the seat + suspension signature.
 - Excludes fixed, ground/world-connected engine-bearing objects to avoid
   incorrectly marking doors and other machinery as vehicles.
 - Keeps engine-powered creations attached to a lift eligible, helping locate
   vehicles that were thrown far away during lift collisions.
-- Shows the selected vehicle's engine type, position, and identification
+- Shows the selected vehicle's detected signature, position, and identification
   details in the lower-left information panel.
 - Adds an expandable underground-floor panel beneath Available saves.
 - Shows saved Vault value, next access-card target, and remaining value.
