@@ -1,4 +1,15 @@
-# JC ScrapMap 0.9.7 (working version)
+# JC ScrapMap 0.10.5
+
+- Corrects fixed-generator POI placement so markers are centered on their
+  actual multi-cell footprint.
+- Adds a dedicated always-visible Excavation Island surface map based on the
+  installed fixed island world.
+- Shows the saved elevator connection, authored terrain and contents, ruins,
+  loot points, enemy spawns, and saved physical beacons within the island.
+- Adds mouse-wheel and simple `+` / `-` zoom controls exclusively to the
+  Excavation Island map.
+
+# JC ScrapMap 0.9.7
 
 - Finds movable engine-less creations that contain both a driver's seat and a
   sport or off-road suspension.
