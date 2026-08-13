@@ -1,98 +1,125 @@
 <img width="1912" height="885" alt="JC_ScrapMap" src="https://github.com/user-attachments/assets/ab971df4-aebb-4b4d-8b45-6071269072c2" />
 
-# JC ScrapMap 0.10.5
+# JC ScrapMap 0.11.7
 
 JC ScrapMap is an offline companion map for Scrap Mechanic Survival.
 
-This release reads exact generated terrain directly from the selected save
-database. It does not modify Scrap Mechanic, launch the game, install Lua
-files, or require administrator privileges.
+It reads generated terrain, saved positions, vehicles, progression, and other
+map information directly from a selected Survival save. Version 0.11.7 also
+adds an optional **Instant Recovery** action that can reposition a saved
+vehicle above a specially built Rescue Vehicle.
+
+Português do Brasil: `README_PORTUGUES-BR.md`
+
+## Important warning: back up your save
+
+Normal map inspection remains read-only. **Instant Recovery is different: it
+edits the selected save database when you click the final recovery action.**
+
+Before using Instant Recovery:
+
+1. Close Scrap Mechanic completely.
+2. Back up the Survival save you intend to edit.
+3. Make sure the correct save is selected in JC ScrapMap.
+4. Keep the backup until you have loaded and saved the recovered world
+   successfully.
+
+There is no in-app undo. If the result is not acceptable, restore your backup.
 
 ## Start
 
-1. Extract the complete folder.
+1. Extract the complete `JC_ScrapMap-v0.11.7` folder.
 2. Double-click `Start JC ScrapMap.cmd`.
 3. The map opens in the default browser.
-4. Use the save selector in the map to switch Survival worlds.
+4. Use **Available saves** to switch Survival worlds if necessary.
 
-For an always-on-top companion window, double-click
-`Start JC ScrapMap Overlay.cmd`. Choose any detected supported Chromium-family
-browser, or select another compatible browser executable. The picker supports
-Google Chrome, Brave, Vivaldi, Chromium, Opera, and Microsoft Edge; only a
-browser already installed on the computer is used. No browser is bundled or
-installed by JC ScrapMap. The overlay is most reliable while Scrap Mechanic is
-running in Borderless Windowed mode.
+For an always-on-top companion window, use
+`Start JC ScrapMap Overlay.cmd`. It can use Chrome, Brave, Vivaldi, Chromium,
+Opera, Microsoft Edge, or another compatible Chromium-family browser already
+installed on the computer. JC ScrapMap does not bundle or install a browser.
 
-The overlay remembers the selected browser inside the extracted JC ScrapMap
-folder and asks again on every launch, with the previous choice as the default.
-Its normal-browser fallback does not use always-on-top mode.
+The bundled private Python runtime is used automatically. A separate Python
+installation and administrator privileges are not required.
 
-Drag the map's left and right dividers to resize or nearly collapse the side
-panels. Double-click either divider to restore that panel's default width.
-Panel widths are remembered in the browser.
+## Build the Rescue Vehicle
 
-The bundled private Python runtime is used automatically. No Python
-installation is required.
+The Rescue Vehicle can be assembled in any shape or orientation. All required
+parts must belong to the same connected movable creation.
 
-## Exact map data
+It must contain exactly and only:
 
-The regular overworld terrain stored by Scrap Mechanic contains the generated
-cell flags and terrain UIDs. JC ScrapMap reads these values using SQLite
-read-only mode and displays:
+- 2 Scrap Gas Engines;
+- 7 Scrap Metal block cells;
+- 5 Scrap Wheels;
+- 1 regular Scrap Seat — not the Scrap Driver's Seat;
+- 1 Portable Craftbot.
 
-- directional roads;
-- water/lake regions (BLUE areas);
-- desert regions (TAN/LIGHT BROWN areas);
-- burnt-forest regions (BROWN areas);
-- autumn-forests (LIGHT PURPLE/PINK areas);
-- Schematic Stations;
-- regular 2-, 3-, and 4-floor Warehouses.
+Nothing else may be attached. The seven Scrap Metal blocks may be arranged in
+any shape. When detected, this creation appears as a red **Rescue Vehicle**
+symbol in the existing **Vehicles** layer. Regular detected vehicles remain
+yellow.
 
-Regular Warehouses and Schematic Stations share the unchecked **Warehouses &
-schematic stations** spoiler layer. The fixed quest Warehouse remains in
-**All POIs / anchors**.
+## Use Instant Recovery
 
-The selected save is hashed before and after inspection. Map generation fails
-if its size, timestamp, or SHA-256 changes during the operation.
+1. Close Scrap Mechanic and make a backup of the selected save.
+2. Start JC ScrapMap and select the correct save.
+3. Enable the **Vehicles** layer.
+4. Confirm that the red **Rescue Vehicle** appears where you built it.
+5. Click the yellow symbol of the vehicle you want to recover.
+6. In the left sidebar, expand **Instant Recovery**.
+7. Click **RECOVERY AT YOUR OWN RISK!** once.
+8. Close JC ScrapMap, start Scrap Mechanic, and load the edited save.
 
-## Privacy and offline behavior
+The complete connected vehicle is moved so its saved reference point is seven
+metres above the Rescue Vehicle. Bearings, suspensions, joined bodies,
+controllers, parts, relative positions, and the vehicle's saved rotation are
+preserved.
 
-- The local web server listens only on `127.0.0.1`.
+Because rotation is preserved and the vehicle is dropped above the target, it
+may appear or land upside-down. This is expected. Instant Recovery does not
+automatically level or rotate vehicles.
+
+## Map features
+
+The offline map includes, where available in the selected save:
+
+- directional roads and terrain regions;
+- water, desert, burnt forest, and autumn forest;
+- Schematic Stations and regular Warehouses;
+- builder quests, chemical/oil pits, prisoner camps, and ruins;
+- underground entrances, progression, floor summaries, and rough floor maps;
+- the separate Excavation Island surface map;
+- saved player position, physical beacons, custom notes, and detected vehicles.
+
+Most spoiler-oriented layers, including **Vehicles**, are disabled by default.
+
+## Privacy and local data
+
+- The web server listens only on `127.0.0.1`.
 - No save, marker, coordinate, Steam ID, or map data is uploaded.
 - No internet connection is required.
-- The selected save is never opened for writing.
-- Mapper notes and generated browser state remain inside this extracted
-  application folder.
+- Map inspection opens the save read-only.
+- Only the explicit Instant Recovery action opens the selected save for an
+  atomic local edit.
+- Generated map state, mapper notes, browser preferences, and operational logs
+  remain inside the extracted application folder.
 
-## Live and persistent logs
+## Logs
 
-The PowerShell window remains open while the local map server is running and
-shows live operational events. Closing that window stops the server.
+The PowerShell window remains open while the local server is running. Closing
+that window stops JC ScrapMap.
 
-The same operational events are retained in:
+Operational events are written to `logs\jc-scrapmap.log`. The rotating log
+does not include save contents, Windows usernames, Steam IDs, save filenames,
+full personal paths, player coordinates, custom-note contents, or HTTP request
+bodies.
 
-`logs\jc-scrapmap.log`
+## Recovery limitations
 
-The log rotates at 1 MB and retains three backups. It records version,
-auto-detection results, hashed mapper identity, seed, terrain counts, refresh
-and save-switch activity, integrity results, local HTTP paths, server
-lifecycle, and error categories.
-
-It does not record save contents, Windows usernames, Steam IDs, save
-filenames or full paths, player coordinates, marker or note contents, HTTP
-request bodies, or decoded terrain contents.
-
-## No helper or recovery workflow
-
-This package intentionally contains no road helper, terrain hook, exporter,
-administrator prompt, recovery backup, or game-side diagnostic workflow. The
-previous helper-based releases remain separate and are not modified by this
-release.
-
-## Release-candidate status
-
-This is the `0.9.7` working version. Prisoner camps and ordinary
-lootable ruins remain in their existing separate layers. Selected-save details
-can be expanded or collapsed to leave more room for layer controls. The new
-Underground entrances layer identifies surface access areas; underground maps
-are reserved for future versions.
+- Recovery uses the last state written to the save; it is not a live game
+  teleport.
+- Scrap Mechanic should be closed while the save is edited.
+- The selected creation must still match the vehicle shown on the map.
+- Exactly one valid Rescue Vehicle must exist in the selected save.
+- Vehicle orientation is preserved, so an upside-down result is possible.
+- Restore your backup if the world or creation does not behave as expected.
