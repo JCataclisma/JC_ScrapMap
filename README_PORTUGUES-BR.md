@@ -1,36 +1,36 @@
 <img width="1912" height="885" alt="JC_ScrapMap" src="https://github.com/user-attachments/assets/6bc95c5b-edf5-4de1-8aee-a3b5d881ada5" />
 
-# JC ScrapMap 0.11.7
+# JC ScrapMap 0.12.5
 
 O JC ScrapMap é um mapa auxiliar offline para o modo Survival do Scrap
 Mechanic.
 
 Ele lê o terreno gerado, posições salvas, veículos, progressão e outras
-informações diretamente do save Survival selecionado. A versão 0.11.7 também
-adiciona a ação opcional **Instant Recovery**, que pode reposicionar um veículo
-salvo acima de um Rescue Vehicle construído especialmente para isso.
+informações diretamente do save Survival selecionado. A versão 0.12.5 adiciona
+um **Recycler** externo operado pelo aplicativo do mapa. A atualização da
+posição salva do jogador e o **Instant Recovery** continuam disponíveis.
 
 English: `README.md`
 
 ## Aviso importante: faça backup do save
 
-A consulta normal do mapa continua sendo somente para leitura. O **Instant
-Recovery é diferente: ele altera o banco de dados do save selecionado quando a
-ação final de recuperação é clicada.**
+A consulta normal do mapa continua sendo somente para leitura. **A execução do
+Recycler e o Instant Recovery são exceções explícitas: ambos alteram o banco de
+dados do save selecionado.**
 
-Antes de usar o Instant Recovery:
+Antes de usar qualquer uma dessas ações:
 
 1. Feche completamente o Scrap Mechanic.
 2. Faça backup do save Survival que será alterado.
 3. Confirme que o save correto está selecionado no JC ScrapMap.
-4. Guarde o backup até carregar e salvar o mundo recuperado com sucesso.
+4. Guarde o backup até carregar e salvar o mundo alterado com sucesso.
 
 Não existe desfazer dentro do aplicativo. Se o resultado não for aceitável,
 restaure o backup.
 
 ## Como iniciar
 
-1. Extraia a pasta completa `JC_ScrapMap-v0.11.7`.
+1. Extraia a pasta completa `JC_ScrapMap-v0.12.5`.
 2. Clique duas vezes em `Start JC ScrapMap.cmd`.
 3. O mapa abrirá no navegador padrão.
 4. Use **Available saves** para trocar de mundo Survival, se necessário.
@@ -43,12 +43,62 @@ Chromium já instalado. O JC ScrapMap não inclui nem instala navegador.
 O runtime Python privado incluído é usado automaticamente. Não é necessário
 instalar Python nem usar privilégios de administrador.
 
-## Como construir o Rescue Vehicle
+## Como construir o Recycler
 
-O Rescue Vehicle pode ter qualquer formato ou orientação. Todas as peças
-obrigatórias devem pertencer à mesma construção móvel conectada.
+Todas as peças obrigatórias devem pertencer a uma única construção móvel
+conectada. O formato e a orientação não importam.
 
 Ele deve conter exatamente e somente:
+
+- 7 blocos de Scrap Metal;
+- 7 blocos de Scrap Wood;
+- 1 Portable Craftbot;
+- 3 Large Chests;
+- 2 Toilet Papers.
+
+Nada mais pode estar conectado. Os itens guardados dentro dos três baús são
+conteúdo, não peças conectadas à construção, e por isso não invalidam o
+Recycler. Quando identificado, ele aparece como um símbolo verde **Recycler**
+em sua própria camada do mapa.
+
+## Como usar o Recycler
+
+1. Coloque os itens que deseja reciclar em qualquer um dos três Large Chests.
+2. Feche o Scrap Mechanic e faça backup do save selecionado.
+3. Inicie o JC ScrapMap e selecione o save correto.
+4. Selecione o marcador verde **Recycler**.
+5. Abra **External Recycler** e clique em **Preview recycling**.
+6. Confira os itens de entrada, os recursos devolvidos e a capacidade dos baús.
+7. Clique em **RECYCLE AT YOUR OWN RISK!** somente se a prévia estiver correta.
+8. Feche o JC ScrapMap, inicie o Scrap Mechanic e carregue o save alterado.
+
+O Recycler lê os arquivos de receitas instalados do Portable Craftbot,
+Workbench e Craftbot, mesmo que o jogador ainda não tenha desbloqueado as
+receitas. Itens fabricáveis são reduzidos recursivamente aos recursos de suas
+receitas. Depois de reunir todas as entradas válidas, o Recycler devolve 50%
+do total de cada recurso, arredondando para baixo até itens inteiros.
+
+Os três Large Chests funcionam como um inventário único de 90 slots. Pilhas
+compatíveis existentes são preenchidas primeiro; depois são usados os slots
+vazios dos três baús. Itens incompatíveis permanecem nos slots originais. Se
+nada puder ser reciclado, ou se todos os recursos devolvidos não couberem, nada
+será alterado. Uma prévia antiga ou alterada também é recusada. Uma reciclagem
+bem-sucedida atualiza os três baús em uma única transação atômica e verifica a
+integridade do SQLite antes de confirmar a alteração.
+
+## Como atualizar a posição salva do jogador
+
+1. Selecione o marcador azul **Last saved player position**.
+2. Clique em **Update saved player position** na barra lateral esquerda.
+
+O aplicativo cria uma cópia local descartável e lê somente o registro do
+jogador. O marcador e o horário são atualizados sem reconstruir o mapa inteiro.
+Essa é a posição mais recente gravada no save, não uma posição ao vivo da
+memória do jogo.
+
+## Como construir o Rescue Vehicle
+
+O Rescue Vehicle deve conter exatamente e somente:
 
 - 2 Scrap Gas Engines;
 - 7 blocos de Scrap Metal;
@@ -56,34 +106,21 @@ Ele deve conter exatamente e somente:
 - 1 Scrap Seat comum — não use o Scrap Driver's Seat;
 - 1 Portable Craftbot.
 
-Nada mais pode estar conectado. Os sete blocos de Scrap Metal podem ser
-organizados em qualquer formato. Quando identificado, ele aparece como um
-símbolo vermelho **Rescue Vehicle** na camada existente **Vehicles**. Os
-veículos comuns continuam amarelos.
+Todas as peças devem formar uma única construção móvel conectada. Ele aparece
+como um símbolo vermelho **Rescue Vehicle** na camada **Vehicles**.
 
 ## Como usar o Instant Recovery
 
-1. Feche o Scrap Mechanic e faça backup do save selecionado.
-2. Inicie o JC ScrapMap e selecione o save correto.
-3. Ative a camada **Vehicles**.
-4. Confirme que o **Rescue Vehicle** vermelho aparece onde foi construído.
-5. Clique no símbolo amarelo do veículo que deseja recuperar.
-6. Na barra lateral esquerda, abra **Instant Recovery**.
-7. Clique uma vez em **RECOVERY AT YOUR OWN RISK!**.
-8. Feche o JC ScrapMap, inicie o Scrap Mechanic e carregue o save alterado.
-
-A construção conectada inteira é movida para que seu ponto de referência salvo
-fique sete metros acima do Rescue Vehicle. Rolamentos, suspensões, corpos
-conectados, controladores, peças, posições relativas e a rotação salva do
-veículo são preservados.
-
-Como a rotação é preservada e o veículo é solto acima do destino, ele pode
-aparecer ou cair de cabeça para baixo. Isso é esperado. O Instant Recovery não
-nivela nem gira o veículo automaticamente.
+Feche o Scrap Mechanic, faça backup do save, selecione o marcador amarelo do
+veículo, abra **Instant Recovery** e clique em **RECOVERY AT YOUR OWN RISK!**.
+A construção conectada inteira é movida sete metros acima do Rescue Vehicle,
+preservando peças, juntas, posições relativas, controladores e a rotação salva.
+Como a rotação é preservada, o veículo pode aparecer ou cair de cabeça para
+baixo.
 
 ## Recursos do mapa
 
-O mapa offline inclui, quando disponíveis no save selecionado:
+O mapa offline inclui, quando disponíveis:
 
 - estradas direcionais e regiões do terreno;
 - água, deserto, floresta queimada e floresta de outono;
@@ -91,10 +128,8 @@ O mapa offline inclui, quando disponíveis no save selecionado:
 - missões do construtor, poços de óleo/químicos, campos de prisioneiros e ruínas;
 - entradas subterrâneas, progressão, resumos e mapas aproximados dos andares;
 - mapa separado da superfície de Excavation Island;
-- posição salva do jogador, beacons físicos, notas e veículos detectados.
-
-A maioria das camadas que revelam informações, incluindo **Vehicles**, começa
-desativada.
+- posição salva do jogador, beacons físicos, notas, veículos detectados,
+  Rescue Vehicle e Recycler.
 
 ## Privacidade e dados locais
 
@@ -102,8 +137,9 @@ desativada.
 - Nenhum save, marcador, coordenada, Steam ID ou dado do mapa é enviado.
 - Não é necessária conexão com a internet.
 - A consulta normal abre o save somente para leitura.
-- Apenas a ação explícita Instant Recovery abre o save selecionado para uma
-  alteração local e atômica.
+- A atualização da posição lê somente uma cópia local descartável.
+- Apenas a execução explícita do Recycler e o Instant Recovery abrem o save
+  selecionado para uma alteração local e atômica.
 - Estado gerado, notas, preferências do navegador e logs permanecem dentro da
   pasta extraída do aplicativo.
 
@@ -117,11 +153,13 @@ não inclui conteúdo do save, usuário do Windows, Steam ID, nome do save,
 caminhos pessoais completos, coordenadas do jogador, conteúdo das notas ou
 corpos das requisições HTTP.
 
-## Limitações da recuperação
+## Limitações das alterações do save
 
-- A recuperação usa o último estado gravado no save; não é um teleporte ao vivo.
 - O Scrap Mechanic deve permanecer fechado durante a alteração.
-- A construção selecionada ainda precisa corresponder ao veículo mostrado no mapa.
-- Deve existir exatamente um Rescue Vehicle válido no save selecionado.
-- A orientação é preservada; o resultado pode ficar de cabeça para baixo.
-- Restaure o backup se o mundo ou a construção não funcionar como esperado.
+- As duas ações usam o último estado gravado no save, não a memória ao vivo.
+- A construção selecionada ainda deve corresponder ao que foi exibido na prévia.
+- O Recycler usa receitas instaladas compatíveis e arredondamento para itens
+  inteiros; itens incompatíveis são preservados.
+- O Instant Recovery preserva a orientação do veículo, inclusive se estiver de
+  cabeça para baixo.
+- Restaure o backup se o mundo alterado não funcionar como esperado.
