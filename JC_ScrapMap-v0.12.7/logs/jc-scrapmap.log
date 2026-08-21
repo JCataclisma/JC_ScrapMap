@@ -1,0 +1,64 @@
+2026-08-21T02:28:48Z [INFO] JC ScrapMap starting version=0.12.7 python=3.14.6 platform=win32.
+2026-08-21T02:28:48Z [INFO] Rolling operational log enabled.
+2026-08-21T02:28:48Z [INFO] Auto-detection complete game=detected userProfiles=1 saves=2.
+2026-08-21T02:28:48Z [INFO] Selected save identity=648d1aa72fed1db1dc90 seed=651696197.
+2026-08-21T02:28:48Z [INFO] Map refresh identity=648d1aa72fed1db1dc90 seed=651696197 availableSaves=2 integrity=verified.
+2026-08-21T02:28:51Z [INFO] Terrain decoded seed=651696197 roads=656 water=9321 desert=565 burntForest=541 autumnForest=253 stations=9 roadConnectedLargePois=10 prisonerCamps=131 ruins=213.
+2026-08-21T02:28:51Z [INFO] Map state ready identity=648d1aa72fed1db1dc90 seed=651696197 roads=656.
+2026-08-21T02:28:51Z [INFO] Generated map state identity=648d1aa72fed1db1dc90 readOnlyVerified=True.
+2026-08-21T02:28:51Z [INFO] Local map server ready url=http://127.0.0.1:8765/web/index.html.
+2026-08-21T02:28:51Z [INFO] Press Ctrl+C to stop the local server.
+2026-08-21T02:29:49Z [INFO] JC ScrapMap starting version=0.12.7 python=3.14.6 platform=win32.
+2026-08-21T02:29:49Z [INFO] Rolling operational log enabled.
+2026-08-21T02:29:49Z [INFO] Auto-detection complete game=detected userProfiles=1 saves=2.
+2026-08-21T02:29:49Z [INFO] Selected save identity=648d1aa72fed1db1dc90 seed=651696197.
+2026-08-21T02:29:50Z [INFO] Map refresh identity=648d1aa72fed1db1dc90 seed=651696197 availableSaves=2 integrity=verified.
+2026-08-21T02:29:52Z [INFO] Terrain decoded seed=651696197 roads=656 water=9321 desert=565 burntForest=541 autumnForest=253 stations=9 roadConnectedLargePois=10 prisonerCamps=131 ruins=213.
+2026-08-21T02:29:52Z [INFO] Map state ready identity=648d1aa72fed1db1dc90 seed=651696197 roads=656.
+2026-08-21T02:29:52Z [INFO] Generated map state identity=648d1aa72fed1db1dc90 readOnlyVerified=True.
+2026-08-21T02:29:52Z [INFO] Local map server ready url=http://127.0.0.1:8765/web/index.html.
+2026-08-21T02:29:52Z [INFO] Press Ctrl+C to stop the local server.
+2026-08-21T02:29:53Z [INFO] HTTP method=GET path=/web/index.html.
+2026-08-21T02:29:53Z [INFO] HTTP method=GET path=/web/app.css.
+2026-08-21T02:29:53Z [INFO] HTTP method=GET path=/web/app.js.
+2026-08-21T02:29:53Z [INFO] HTTP method=GET path=/generated/state.json.
+2026-08-21T02:29:54Z [INFO] HTTP method=GET path=/generated/state.json.
+2026-08-21T02:29:55Z [INFO] HTTP method=GET path=/generated/state.json.
+2026-08-21T02:29:56Z [INFO] HTTP method=GET path=/generated/state.json.
+2026-08-21T02:29:57Z [INFO] HTTP method=GET path=/generated/state.json.
+2026-08-21T02:29:58Z [INFO] HTTP method=GET path=/generated/state.json.
+2026-08-21T02:29:59Z [INFO] HTTP method=GET path=/generated/state.json.
+2026-08-21T02:30:00Z [INFO] HTTP method=GET path=/generated/state.json.
+2026-08-21T02:30:01Z [INFO] HTTP method=GET path=/generated/state.json.
+2026-08-21T02:30:02Z [INFO] HTTP method=POST path=/api/recycler-preview.
+2026-08-21T02:30:02Z [INFO] API action=/api/recycler-preview result=ok identity=648d1aa72fed1db1dc90 recycler=recycler-37060.
+2026-08-21T02:30:02Z [INFO] HTTP method=GET path=/generated/state.json.
+2026-08-21T02:30:03Z [INFO] HTTP method=GET path=/generated/state.json.
+2026-08-21T02:30:04Z [INFO] HTTP method=GET path=/generated/state.json.
+2026-08-21T02:30:05Z [INFO] HTTP method=GET path=/generated/state.json.
+2026-08-21T02:30:06Z [INFO] HTTP method=GET path=/generated/state.json.
+2026-08-21T02:30:07Z [INFO] HTTP method=GET path=/generated/state.json.
+2026-08-21T02:30:08Z [INFO] HTTP method=GET path=/generated/state.json.
+2026-08-21T02:30:09Z [INFO] HTTP method=GET path=/generated/state.json.
+2026-08-21T02:30:10Z [INFO] HTTP method=GET path=/generated/state.json.
+2026-08-21T02:30:11Z [INFO] HTTP method=GET path=/generated/state.json.
+2026-08-21T02:30:14Z [INFO] HTTP method=GET path=/generated/state.json.
+2026-08-21T02:30:14Z [INFO] HTTP method=GET path=/generated/state.json.
+2026-08-21T02:30:15Z [INFO] HTTP method=GET path=/generated/state.json.
+2026-08-21T02:30:16Z [INFO] HTTP method=GET path=/generated/state.json.
+2026-08-21T02:30:16Z [INFO] Recycler result=ok recycler=recycler-37060 inputItems=80 returnedItems=268.
+2026-08-21T02:30:16Z [INFO] Map refresh identity=648d1aa72fed1db1dc90 seed=651696197 availableSaves=2 integrity=verified.
+2026-08-21T02:30:17Z [INFO] HTTP method=GET path=/generated/state.json.
+2026-08-21T02:30:18Z [INFO] HTTP method=GET path=/generated/state.json.
+2026-08-21T02:30:19Z [INFO] HTTP method=GET path=/generated/state.json.
+2026-08-21T02:30:19Z [INFO] Terrain decoded seed=651696197 roads=656 water=9321 desert=565 burntForest=541 autumnForest=253 stations=9 roadConnectedLargePois=10 prisonerCamps=131 ruins=213.
+2026-08-21T02:30:19Z [INFO] Map state ready identity=648d1aa72fed1db1dc90 seed=651696197 roads=656.
+2026-08-21T02:30:19Z [INFO] HTTP method=POST path=/api/recycle.
+2026-08-21T02:30:19Z [INFO] API action=/api/recycle result=ok identity=648d1aa72fed1db1dc90.
+2026-08-21T02:30:19Z [INFO] HTTP method=GET path=/web/index.html.
+2026-08-21T02:30:19Z [INFO] HTTP method=GET path=/web/app.css.
+2026-08-21T02:30:19Z [INFO] HTTP method=GET path=/web/app.js.
+2026-08-21T02:30:19Z [INFO] HTTP method=GET path=/generated/state.json.
+2026-08-21T02:30:20Z [INFO] HTTP method=GET path=/generated/state.json.
+2026-08-21T02:30:21Z [INFO] HTTP method=GET path=/generated/state.json.
+2026-08-21T02:30:22Z [INFO] HTTP method=GET path=/generated/state.json.
