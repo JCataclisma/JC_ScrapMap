@@ -1,22 +1,22 @@
 <img width="1912" height="885" alt="JC_ScrapMap" src="https://github.com/user-attachments/assets/6bc95c5b-edf5-4de1-8aee-a3b5d881ada5" />
 
-# JC ScrapMap 0.12.5
+# JC ScrapMap 0.12.7
 
 O JC ScrapMap é um mapa auxiliar offline para o modo Survival do Scrap
 Mechanic.
 
 Ele lê o terreno gerado, posições salvas, veículos, progressão e outras
-informações diretamente do save Survival selecionado. A versão 0.12.5 adiciona
-um **Recycler** externo operado pelo aplicativo do mapa. A atualização da
-posição salva do jogador e o **Instant Recovery** continuam disponíveis.
+informações diretamente do save Survival selecionado. A versão 0.12.7 adiciona
+uma restauração única para Warehouses regulares destruídos. Ela restaura o
+exterior e permite que o jogo crie novos andares internos. Warehouses de
+missão nunca são elegíveis.
 
 English: `README.md`
 
 ## Aviso importante: faça backup do save
 
-A consulta normal do mapa continua sendo somente para leitura. **A execução do
-Recycler e o Instant Recovery são exceções explícitas: ambos alteram o banco de
-dados do save selecionado.**
+A consulta normal do mapa continua sendo somente para leitura. **Warehouse
+Revival, Recycler e Instant Recovery são ações explícitas que alteram o save.**
 
 Antes de usar qualquer uma dessas ações:
 
@@ -30,7 +30,7 @@ restaure o backup.
 
 ## Como iniciar
 
-1. Extraia a pasta completa `JC_ScrapMap-v0.12.5`.
+1. Extraia a pasta completa `JC_ScrapMap-v0.12.7`.
 2. Clique duas vezes em `Start JC ScrapMap.cmd`.
 3. O mapa abrirá no navegador padrão.
 4. Use **Available saves** para trocar de mundo Survival, se necessário.
