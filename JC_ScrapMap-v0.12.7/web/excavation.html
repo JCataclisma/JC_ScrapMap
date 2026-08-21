@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>JC ScrapMap · Excavation Island</title>
+  <link rel="stylesheet" href="excavation.css?v=0.10.5-excavation1">
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Excavation Island</h1>
+      <div id="subtitle">Loading authored surface map...</div>
+    </div>
+    <div class="header-actions">
+      <div id="connection"></div>
+      <div class="zoom-controls" aria-label="Map zoom">
+        <button id="zoomOut" type="button" aria-label="Zoom out">−</button>
+        <button id="zoomIn" type="button" aria-label="Zoom in">+</button>
+      </div>
+    </div>
+  </header>
+  <main>
+    <canvas id="excavationCanvas"></canvas>
+    <aside>
+      <h2>Map information</h2>
+      <div id="details">Loading...</div>
+      <h2>Terrain</h2>
+      <div class="legend"><span class="swatch lake"></span>Lake / water</div>
+      <div class="legend"><span class="swatch meadow"></span>Meadow</div>
+      <div class="legend"><span class="swatch forest"></span>Forest</div>
+      <div class="legend"><span class="swatch autumn"></span>Autumn forest</div>
+      <div class="legend"><span class="swatch beach"></span>Beach tile</div>
+      <div class="legend"><span class="swatch bridge"></span>Access bridge tile</div>
+      <div class="legend"><span class="swatch mountain"></span>Mountain tile</div>
+      <h2>Authored contents</h2>
+      <div class="legend"><span class="dot asset"></span>Static asset</div>
+      <div class="legend"><span class="dot harvestable"></span>Harvestable placement</div>
+      <div class="legend"><span class="dot structure"></span>Prefab / ruin / structure</div>
+      <div class="legend"><span class="dot loot"></span>Loot spawn</div>
+      <div class="legend"><span class="dot epic"></span>Epic loot spawn</div>
+      <div class="legend"><span class="dot enemy"></span>Enemy spawn</div>
+      <div class="legend"><span class="dot beacon"></span>Saved physical beacon</div>
+      <div class="legend"><span class="dot elevator"></span>Saved elevator portal cell</div>
+      <p>All authored layers are shown. Loot, enemy, and harvestable markers describe installed placements or spawn points; they do not prove current availability.</p>
+    </aside>
+  </main>
+  <script src="excavation.js?v=0.10.5-excavation3"></script>
+</body>
+</html>
